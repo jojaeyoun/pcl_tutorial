@@ -1,0 +1,11 @@
+<launch>
+    <arg name="savefile_path" default="/home/jaeyun/pcl_ws/src/data" />
+    <arg name="lidar_topic" default="/velodyne_left" />
+    <arg name="pcdfile_cnt" default="1" />
+
+    <node name = "pcd_saver" pkg = "pcddata_save" type = "pcd_save" output = "screen">
+        <param name="savefile_path" value="$(arg savefile_path)"  type="string"/> 
+        <param name="lidar_topic"   value="$(arg lidar_topic)"  type="string"/>  <!-- during 40 * 0.05 second -->
+        <param name="pcdfile_cnt"   value="$(arg pcdfile_cnt)"  type="int"/>  <!-- during 40 * 0.05 second -->
+    </node>
+</launch>
